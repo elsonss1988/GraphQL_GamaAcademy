@@ -66,3 +66,17 @@ const HOSTNAME = process.env.HOSTNAME || '127.0.0.1'
 server.listen(8082, '127.0.0.1',()=>{
     console.log(`Server Running at http://${HOSTNAME}: ${PORT} `)
 })
+
+
+### Mono Repo
+
+Usando pnpm pra criar os pacotes
+npm i -g pnpm  
+pnpm init
+
+lincar o package server com o package externo
+pnpm i --filter @dev-demands/server
+
+@dev-demands dominio do packages
+
+npm run start --filter @dev-demands/server   
