@@ -79,4 +79,12 @@ pnpm i --filter @dev-demands/server
 
 @dev-demands dominio do packages
 
-npm run start --filter @dev-demands/server   
+ pnpm  --filter @dev-demands/server run start    
+ pnpm  --filter @dev-demands/web run start     
+
+ pnpm i cors  --filter @dev-demands/server
+ pnpm i react-router-dom  --filter @dev-demands/web
+ pnpx create-react-app packages/web
+ pnpm i apollo-server-express --filter @dev-demands/server
+ pnpm --filter @dev-demands/server i apollo-server-express graphql
+ pnpm --filter @dev-demands/server i apollo-server-core
