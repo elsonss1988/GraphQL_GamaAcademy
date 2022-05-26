@@ -4,6 +4,8 @@ import express from 'express';
 import cors from 'cors';
 import {ApolloServer, gql} from 'apollo-server-express'
 import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
+import typeDefs from './graphql/typeDefs';
+import resolvers from './graphql/resolvers';
 
 // const server = express();
 
@@ -37,28 +39,8 @@ async function startServer(){
         plugins: [
             ApolloServerPluginLandingPageGraphQLPlayground(),
         ],
-        typeDefs:gql`
-            type Client{
-                id:ID!
-                name:String!
-            }
-    
-            type Demand{
-                id: ID!
-                name:String!
-                client:Client!
-                deadline:String
-            }
-    
-            type Query{
-                demands:[Demand]!
-            }
-        `,
-        resolvers:{
-            Query:{
-                demands:()=>[],
-            }
-        }
+        typeDefs,
+        resolvers,
     })
 
 await server.start();
